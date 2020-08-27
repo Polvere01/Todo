@@ -4,10 +4,10 @@ namespace Todo.Domain.Entities
 {
     public class TodoItem : Entity
     {
-        public TodoItem(string title, bool done, DateTime date, string user)
+        public TodoItem(string title, DateTime date, string user)
         {
             this.Title = title;
-            this.Done = done;
+            this.Done = false;
             this.Date = date;
             this.User = user;
 
