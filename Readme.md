@@ -7,3 +7,6 @@ dotnet new sln - cria um arquivo solution
 dotnet sln add  <projeto .net> - adicionando na solution os projetos
 dotnet build - builda o projeto
 dotnet add reference <projeto referenciado>
+dotnet add package Microsoft.EntityFrameworkCore.InMemory
+dotnet add package Microsoft.EntityFrameworkCore.Design
+            
