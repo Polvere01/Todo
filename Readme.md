@@ -9,4 +9,4 @@ dotnet build - builda o projeto
 dotnet add reference <projeto referenciado>
 dotnet add package Microsoft.EntityFrameworkCore.InMemory
 dotnet add package Microsoft.EntityFrameworkCore.Design
-            
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
