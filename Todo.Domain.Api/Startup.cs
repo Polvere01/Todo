@@ -4,7 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Todo.Domain.Infra.Contexts;
+using Todo.Domain.Handlers;
+using Todo.Domain.Repository;
+using Todo.Domain.Infra.Repositories;
 
 namespace Todo.Domain.Api
 {
@@ -24,6 +26,9 @@ namespace Todo.Domain.Api
 
             services.AddDbContext<DbContext>(opt => opt.UseInMemoryDatabase("DataBase"));
             //services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("ConnectionStrings")));
+
+            services.AddTransient<ITodoRepository, TodoRepository>();
+            services.AddTransient<TodoHandler, TodoHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,6 +42,12 @@ namespace Todo.Domain.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                );
 
             app.UseAuthorization();
 

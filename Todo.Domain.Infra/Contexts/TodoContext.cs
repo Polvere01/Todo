@@ -9,7 +9,7 @@ namespace Todo.Domain.Infra.Contexts
         {
         }
 
-        public DbSet<TodoItem> Todo { get; set; }
+        public DbSet<TodoItem> Todos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
