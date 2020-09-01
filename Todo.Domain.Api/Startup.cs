@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Todo.Domain.Handlers;
 using Todo.Domain.Repository;
 using Todo.Domain.Infra.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace Todo.Domain.Api
 {
@@ -24,7 +24,7 @@ namespace Todo.Domain.Api
         {
             services.AddControllers();
 
-            services.AddDbContext<DbContext>(opt => opt.UseInMemoryDatabase("DataBase"));
+            services.AddDbContext<Todo.Domain.Infra.Contexts.DataContext>(opt => opt.UseInMemoryDatabase("DataBase"));
             //services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("ConnectionStrings")));
 
             services.AddTransient<ITodoRepository, TodoRepository>();
